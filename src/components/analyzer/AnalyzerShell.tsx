@@ -44,6 +44,15 @@ export function AnalyzerShell() {
     }
   }, [text, showToast]);
 
+  const handleTextChange = useCallback((value: string) => {
+    setText(value);
+
+    if (!value.trim()) {
+      setResult(null);
+      setFaceLevel(null);
+    }
+  }, []);
+
   return (
     <>
       <section className="flex flex-col gap-4">
@@ -56,7 +65,7 @@ export function AnalyzerShell() {
         <textarea
           id={textareaId}
           value={text}
-          onChange={(event) => setText(event.target.value)}
+          onChange={(event) => handleTextChange(event.target.value)}
           rows={6}
           maxLength={MAX_CHARS}
           placeholder="Ejemplo: Hoy no estoy muy triste, pero sí algo cansado…"
@@ -81,7 +90,7 @@ export function AnalyzerShell() {
 
       <ResultsCard result={result} />
 
-      <EmotionFaces activeLevel={faceLevel} />
+      {result && faceLevel && <EmotionFaces activeLevel={faceLevel} />}
 
       {toast && (
         <div
