@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #0f0f12;
+  --color-bg-secondary: #18181c;
+  --color-bg-card: #1e1e24;
+  --color-bg-elevated: #25252d;
+  --color-text-primary: #f4f4f5;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #71717a;
+  --color-accent: #8b5cf6;
+  --color-accent-hover: #a78bfa;
+  --color-positive: #22c55e;
+  --color-negative: #ef4444;
+  --color-warning: #f59e0b;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-primary text-text-primary font-sans antialiased;
+    background-image:
+      radial-gradient(
+        ellipse 80% 50% at 50% -20%,
+        rgba(139, 92, 246, 0.15),
+        transparent
+      ),
+      radial-gradient(
+        ellipse 80% 50% at 100% 100%,
+        rgba(139, 92, 246, 0.08),
+        transparent
+      );
+  }
+}
+
+@layer components {
+  .face-eyes::before,
+  .face-eyes::after {
+    content: "";
+    position: absolute;
+    top: 25px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: black;
+  }
+
+  .face-eyes::before {
+    left: 20px;
+  }
+
+  .face-eyes::after {
+    right: 20px;
+  }
+
+  .face-eyes-happy::before,
+  .face-eyes-happy::after {
+    height: 6px;
+    border-radius: 50% 50% 0 0;
+  }
+
+  .face-mouth {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    width: 30px;
+    height: 15px;
+    transform: translateX(-50%);
+    border: 4px solid black;
+    border-top: none;
+    border-radius: 0 0 40px 40px;
+  }
+
+  .face-mouth-sad,
+  .face-mouth-angry {
+    border-bottom: none;
+    border-top: 4px solid black;
+    border-radius: 40px 40px 0 0;
+  }
+
+  .face-mouth-neutral {
+    height: 0;
+    border: none;
+    border-top: 4px solid black;
+  }
+
+  .face-mouth-big {
+    height: 20px;
+    background: black;
+    border: none;
+    border-radius: 0 0 40px 40px;
+  }
+}
