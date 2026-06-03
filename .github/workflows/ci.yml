@@ -28,6 +28,9 @@ jobs:
         with:
           version: 11.1.3
 
+      - name: Permitir dependencias con scripts de build
+        run: pnpm approve-builds esbuild sharp unrs-resolver
+
       - name: Instalar dependencias
         run: pnpm install --frozen-lockfile
 
