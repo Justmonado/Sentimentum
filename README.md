@@ -1,4 +1,5 @@
 # Sentimentum — Analizador léxico-emocional
+[![CI - Next.js](https://github.com/Justmonado/Sentimentum/actions/workflows/ci.yml/badge.svg?branch=develop&event=push)](https://github.com/Justmonado/Sentimentum/actions/workflows/ci.yml)
 
 Análisis de sentimiento en **español (México)** con motor léxico local. Funciona **sin API externa**: todo el procesamiento ocurre en tu navegador.
 
